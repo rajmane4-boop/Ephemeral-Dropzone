@@ -1,0 +1,51 @@
+{
+  "name": "ephemeral-dropzone",
+  "version": "1.0.0",
+  "description": "An always-on, edge-docked desktop dropzone for capturing text, links, and images.",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "package": "electron-builder --win --config"
+  },
+  "dependencies": {
+    "@electron-toolkit/utils": "^3.0.0",
+    "sql.js": "^1.11.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tailwindcss/vite": "^4.0.6",
+    "electron": "^34.1.1",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^3.0.0",
+    "svelte": "^5.19.9",
+    "tailwindcss": "^4.0.6"
+  },
+  "build": {
+    "appId": "com.ephemeral.dropzone",
+    "productName": "Ephemeral Dropzone",
+    "icon": "resources/icon.ico",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      "resources/icon.ico"
+    ],
+    "extraMetadata": {
+      "main": "./out/main/index.js"
+    }
+  }
+}

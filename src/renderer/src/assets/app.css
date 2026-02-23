@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* ── Base Styles ──────────────────────────────── */
+:root {
+  --bg-primary: rgba(17, 45, 78, 0.94);
+  --bg-card: rgba(24, 55, 90, 0.85);
+  --bg-hover: rgba(74, 143, 212, 0.25);
+  --accent: #4A8FD4;
+  --accent-glow: rgba(74, 143, 212, 0.35);
+  --accent-light: #DBE2EF;
+  --text-primary: #F9F7F7;
+  --text-secondary: #94A3B8;
+  --danger: #ff4d6a;
+  --success: #34d399;
+  --border: rgba(219, 226, 239, 0.08);
+  /* Type-specific colors */
+  --type-text: #4A8FD4;
+  --type-link: #38BDF8;
+  --type-image: #A78BFA;
+  --type-file: #FBBF24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  background: transparent;
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+  -webkit-app-region: no-drag;
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 143, 212, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 143, 212, 0.5);
+}
+
+/* ── Glassmorphism Utility ────────────────────── */
+.glass {
+  background: var(--bg-primary);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid var(--border);
+}
+
+/* ── Animations ───────────────────────────────── */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(74, 143, 212, 0.15);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+.animate-slide-out-left {
+  animation: slideOutLeft 0.4s ease-in forwards;
+  will-change: transform, opacity;
+}
+
+.animate-slide-out-right {
+  animation: slideOutRight 0.4s ease-in forwards;
+  will-change: transform, opacity;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
