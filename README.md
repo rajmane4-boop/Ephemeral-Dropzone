@@ -92,6 +92,10 @@ src/
 - Windows 10/11
 - ~120 MB disk space
 
+## 🤝 Acknowledgments
+
+Built with the help of **Google Gemini** — AI pair programming partner for architecture, debugging, and code review.
+
 ## 📄 License
 
 [MIT](LICENSE)
